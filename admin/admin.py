@@ -9,7 +9,7 @@ def commandList():
 	with open(script_path, 'r') as file_read:
 		file_r = csv.reader(file_read)
 		for row in file_r:
-			print(row)
+			print(f"{row[0].split(',')[0]} - {row[0].split(',')[1]}")
 
 while work == True:
 	command = input("")
