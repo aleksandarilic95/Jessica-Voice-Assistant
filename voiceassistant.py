@@ -62,13 +62,14 @@ def doCommand(command):
 speak("hello")
 while work == True:
 	command = get_audio()
-	if command.lower().startswith("jessica"):
-		command2 = command.lower().split(' ', 1)[1]
-		if command2 == "go to sleep":
-			speak("I will miss you, goodbye")
-			work = False
-		if not command == "" and not command2 == "go to sleep":
-			doCommand(command2)
+	if command.lower().startswith("rebecca"):
+		if not command.lower() == "rebecca":
+			command2 = command.lower().split(' ', 1)[1]
+			if command2 == "go to sleep":
+				speak("I will miss you, goodbye")
+				work = False
+			if not command == "" and not command2 == "go to sleep":
+				doCommand(command2)
 
 	delete_speech_files()
 			

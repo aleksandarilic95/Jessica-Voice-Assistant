@@ -48,14 +48,33 @@ for item in scrapeyoutubechannels.channel:
 	
 channel_list = scrapeyoutubechannels.channel
 
-for index, item in enumerate(all_videos):
-	if(len(item[index]) == 0):
-		speak(f"There are no new videos from user {channel_list[index][0]}")
-	if(len(item[index]) == 1):
-		speak(f"There is one new video from user {channel_list[index][0]}")
-	else:
-		speak(f"There are {len(item)} new videos from user {channel_list[index][0]}")
+count = 0
+for item in all_videos:
+	for _ in item:
+		count += 1
 
-	for index, item in enumerate(item):
-		speak(f"Video number {index+1}")
-		speak(item[0])
+if count == 0:
+	speak(f"There are no new videos")
+if count == 1:
+	speak(f"There is one new video")
+	speak("Giving you the list now")
+else:
+	speak(f"There are {count} new videos")
+	speak("Giving you the list now")
+
+
+
+for index, item in enumerate(all_videos):
+	print("=========================")
+	print(channel_list[index][0])
+	print("=========================")
+	for item2 in item:
+		print(item2[0])
+		print(item2[1])
+		dates = item2[3].split('T')
+		times = dates[1].split('+')
+		print(f"{dates[0]} {times[0]}")
+		print("----------------------")
+	scrapeyoutubechannels.updateChannel(index, item[0][0])
+
+
