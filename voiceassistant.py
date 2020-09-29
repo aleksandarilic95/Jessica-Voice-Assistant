@@ -9,7 +9,7 @@ speechnum = 1
 work = True
 repeat = False
 
-script_path = "C://Users/aleks/Desktop/Python/Voice Assistant/scripts/scripts.csv"
+script_path = "./scripts/scripts.csv"
 
 def speak(text):
 	global speechnum

@@ -2,7 +2,7 @@ import os
 import csv
 
 exists = True
-script_path = "C://Users/aleks/Desktop/Python/Voice Assistant/scripts/scripts.csv"
+script_path = "../scripts/scripts.csv"
 
 def addCommand(command,script):
 	global exists
