@@ -10,7 +10,6 @@ def commandList():
 		file_r = csv.reader(file_read)
 		for row in file_r:
 			print(row)
-		file_read.close()
 
 while work == True:
 	command = input("")

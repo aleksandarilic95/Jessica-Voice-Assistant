@@ -13,12 +13,10 @@ def addCommand(command,script):
 				pass
 			else:
 				exists = False
-		file_read.close()
 		if exists == False:
 			with open(script_path, 'a', newline='') as file_append:
 				file_a = csv.writer(file_append)
 				file_a.writerow([f"{str(command)},{str(script)}"])
-			file_append.close()
 		else:
 			print("Command and/or script already exists")
 	csvPrettify()
@@ -30,7 +28,7 @@ def checkIfScriptExists(script):
 			if not row == [] and row[0].split(',')[1] == str(script):
 				return True
 		return False	
-		file_read.close()
+		
 
 def checkIfCommandExists(command):
 	with open(script_path, 'r') as file_read:
@@ -39,7 +37,7 @@ def checkIfCommandExists(command):
 			if not row == [] and row[0].split(',')[0] == str(command):
 				return True
 		return False	
-		file_read.close()
+		
 
 def csvPrettify():
 	list_new = []
@@ -48,12 +46,12 @@ def csvPrettify():
 		for row in file_r:
 			if not row == []:
 				list_new.append(row)
-		file_read.close()
+		
 
 	with open(script_path, 'w', newline='') as file_write:
 		file_w = csv.writer(file_write)
 		file_w.writerows(list_new)
-		file_write.close()
+		
 
 
 
